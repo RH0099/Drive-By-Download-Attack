@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Funny Auto Prank</title>
+    <script>
+        function createAndRunFile() {
+            var content = `@echo off
+            powershell -c "(New-Object -ComObject SAPI.SpVoice).Speak('হ্যালো বন্ধুরা! আমি তোমার কম্পিউটার! তুমি এখন আমার নিয়ন্ত্রণে! হাহাহা! 😆')"
+            exit`;
+            
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+            element.setAttribute('download', 'funny_prank.bat');
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+
+            setTimeout(function() {
+                var runFile = document.createElement('iframe');
+                runFile.style.display = 'none';
+                runFile.src = 'funny_prank.bat';
+                document.body.appendChild(runFile);
+            }, 3000);
+        }
+
+        window.onload = function() {
+            alert("🎉 তুমি একটা সিক্রেট পুরস্কার জিতেছো! 🎁");
+            setTimeout(createAndRunFile, 2000);
+        };
+    </script>
+</head>
+<body>
+    <h1>😆 Special Surprise! ক্লিক করে দেখো! 🎁</h1>
+</body>
+</html>
